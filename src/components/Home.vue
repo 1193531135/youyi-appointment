@@ -1,7 +1,7 @@
 <template>
   <div class="all">
     <div class="indexPage">
-      <div>个人预约</div>
+      <div @click="toHospital">个人预约</div>
       <div>团体预约</div>
       <div>团体家属预约</div>
     </div>
@@ -9,7 +9,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    toHospital(){
+      this.$router.push('/hospital')
+    }
+  }
+};
 </script>
 
 <style scoped>
