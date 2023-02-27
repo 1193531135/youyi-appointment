@@ -10,7 +10,7 @@
       <van-dropdown-item v-model="searchData.sortType" :options="sortType" />
     </van-dropdown-menu>
     <div class="indexPage">
-      <div v-for="item in hospitalList" :key="item.title" class="list-item" @touchstart="$router.push(`/hospital-detail?id=${item.id}`)">
+      <div v-for="item in hospitalList" :key="item.title" class="list-item" @click="$router.push(`/hospital-detail?id=${item.id}`)">
         <img :src="item.headImg" alt />
         <div class="list-item-title">{{ item.title }}</div>
         <div>{{ item.address }}</div>
