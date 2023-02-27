@@ -19,6 +19,11 @@ const routes = [
     name: 'Hospital',
     component:re => require(['../components/HospitalList.vue'],re)
   },
+  {
+    path: '/hospital-detail',
+    name: 'HospitalDetail',
+    component:re => require(['../components/HospitalDetail.vue'],re)
+  },
 ]
 
 const router = new VueRouter({
