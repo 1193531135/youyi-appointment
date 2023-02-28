@@ -24,6 +24,11 @@ const routes = [
     name: 'HospitalDetail',
     component:re => require(['../components/HospitalDetail.vue'],re)
   },
+  {
+    path: '/setMeal-detail',
+    name: 'SetMeal',
+    component:re => require(['../components/SetMealDetail.vue'],re)
+  },
 ]
 
 const router = new VueRouter({

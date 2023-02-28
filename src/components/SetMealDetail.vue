@@ -1,54 +1,36 @@
 <template>
   <div class="all">
-    <div class="background-con">
-      <img :src="hospitalData.bgImage" alt />
-    </div>
-    <div class="content-con">
-      <div class="card">
-        <div class="head-con1">
-          <img :src="hospitalData.icon" class="hospital-icon" />
-          <div>
-            <div>{{ hospitalData.name }}</div>
-            <van-tag plain type="primary">{{ hospitalData.level }}</van-tag>
-          </div>
-        </div>
-        <div class="head-con2">
-          <i class="font-icon-address"></i>
+    <div class="list-item">
+      <img :src="setMealData.headImg" alt />
+      <div>
+        <div>
+          <div class="list-item-title">{{ setMealData.title }}</div>
           <div>{{ hospitalData.address }}</div>
         </div>
-      </div>
-      <div class="card card2" ref="card2">
-        <van-sticky :container="card2">
-          <van-tabs v-model="searchData.type">
-            <van-tab title="热门" name="host"></van-tab>
-            <van-tab title="父母" name="parents"></van-tab>
-            <van-tab title="男性" name="man"></van-tab>
-            <van-tab title="女性" name="woman"></van-tab>
-          </van-tabs>
-          <van-tabbar v-model="searchData.sortType" :fixed="false" :border="false">
-            <van-tabbar-item>综合</van-tabbar-item>
-            <van-tabbar-item>价格</van-tabbar-item>
-            <van-tabbar-item>销量</van-tabbar-item>
-          </van-tabbar>
-        </van-sticky>
-        <div class="indexPage">
-          <div v-for="item in hospitalData.setMealList" :key="item.title" class="list-item" @click="$router.push(`/setMeal-detail?id=${item.id}`)">
-            <img :src="item.headImg" alt />
-            <div>
-              <div>
-                <div class="list-item-title">{{ item.title }}</div>
-                <div class="tags">
-                  <van-tag plain color="rgb(236,249,243)" text-color="rgb(120,202,183)" v-for="item2 in item.sign.split(',')" :key="item2">{{ item2 }}</van-tag>
-                </div>
-              </div>
-              <div>
-                <div class="price">￥{{ item.price }}</div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <div class="price">￥{{ setMealData.price }}</div>
         </div>
       </div>
     </div>
+    <img src="../assets/imagePage/page1.png" alt />
+    <div class="head-con2">
+      <i class="font-icon-address"></i>
+      <div>{{ hospitalData.address }}</div>
+    </div>
+    <van-sticky :container="card2">
+      <van-tabs v-model="type" title-active-color="rgb(248,216,0)" color="rgb(248,216,0)">
+        <van-tab title="检测项目" name="1"></van-tab>
+        <van-tab title="筛查疾病" name="2"></van-tab>
+        <van-tab title="体检须知" name="3"></van-tab>
+        <van-tab title="体检保障" name="4"></van-tab>
+      </van-tabs>
+    </van-sticky>
+    <div class="writings-title"></div>
+    <img src="../assets/imagePage/page2.jpg" alt="">
+    <img src="../assets/imagePage/page3.png" alt="">
+    <img src="../assets/imagePage/page4.png" alt="">
+    <img src="../assets/imagePage/page5.png" alt="">
+    <img src="../assets/imagePage/page6.png" alt="">
   </div>
 </template>
 
@@ -57,9 +39,18 @@ export default {
   data() {
     return {
       id: null,
+      type:'1',
       searchData: {
         type: "host",
         sortType: 1
+      },
+      setMealData: {
+        id: 1,
+        headImg:
+          "https://imgcp.aacdn.jp/img-a/800/auto/aa/gm/article/2/2/3/6/3/6/201812312133/pixta_31920516_M.jpg",
+        title: "双人体检套餐",
+        price: "3000",
+        sign: "15个项目,筛查20个疾病,万元保障"
       },
       hospitalData: {
         icon: "",
@@ -108,6 +99,47 @@ export default {
           }
         ]
       },
+      setMealList: [
+        {
+          id: 1,
+          headImg:
+            "https://imgcp.aacdn.jp/img-a/800/auto/aa/gm/article/2/2/3/6/3/6/201812312133/pixta_31920516_M.jpg",
+          title: "双人体检套餐",
+          price: "3000",
+          sign: "15个项目,筛查20个疾病,万元保障"
+        },
+        {
+          id: 2,
+          headImg: "https://mimage.aflo.com/resources/category/10_1602.jpg",
+          title: "入职体检套餐",
+          price: "2299",
+          sign: "13个项目,筛查9个疾病"
+        },
+        {
+          id: 3,
+          headImg:
+            "https://suke-up.com/wp-content/uploads/2014/06/76620c36b56c7c8d3b6c16bf4a668fe5.jpg",
+          title: "女性体检套餐",
+          price: "2213",
+          sign: "13个项目,筛查8个疾病"
+        },
+        {
+          id: 4,
+          headImg:
+            "https://th.bing.com/th/id/R.b020e45cdffcfb235b3a2b430e67f022?rik=6xG654CzCO6EDQ&riu=http%3a%2f%2fpic4.nipic.com%2f20090811%2f2000112_180732049_2.jpg&ehk=CC0qPXUn%2fORD69hMecpRL7%2fBgHYiwsIv8AGPYuoKNN8%3d&risl=&pid=ImgRaw&r=0",
+          title: "双人体检套餐(二)",
+          price: "2945",
+          sign: "6个项目,筛查3个疾病"
+        },
+        {
+          id: 4,
+          headImg:
+            "https://th.bing.com/th/id/R.c3091eb5837dc4936ab82d42d0c2dd17?rik=5ABHM%2fTfitvWjg&riu=http%3a%2f%2fpic5.nipic.com%2f20100224%2f2000112_141940079862_2.jpg&ehk=ziE5j387wRCcrPrM0r%2fh4DZJMp%2bPr1do%2bDsfbObWBdo%3d&risl=&pid=ImgRaw&r=0",
+          title: "单人体检套餐",
+          price: "2939",
+          sign: "20个项目,筛查24个疾病"
+        }
+      ],
       hospitalList: [
         {
           id: 1,
@@ -139,11 +171,13 @@ export default {
         },
         {
           id: 4,
-          headImg: "https://images3.viptijian.com/group1/M00/16/0E/dr6LkWBunSqAAqxDAAFVr4JwOwM283.jpg",
+          headImg:
+            "https://images3.viptijian.com/group1/M00/16/0E/dr6LkWBunSqAAqxDAAFVr4JwOwM283.jpg",
           title: "核工业416医院",
           level: "三级甲等",
           address: "成都市二环路北四段4号",
-          bgImage:'https://file1.dxycdn.com/2019/0122/676/3324634072487413561-7.png'
+          bgImage:
+            "https://file1.dxycdn.com/2019/0122/676/3324634072487413561-7.png"
         }
       ]
     };
@@ -157,11 +191,13 @@ export default {
     document.title = "医院详情";
     this.id = this.$route.query.id;
     let obj = this.hospitalList.filter(i => i.id == this.id)[0];
+    let setMeal = this.setMealList.filter(i => i.id == this.id)[0];
     this.hospitalData.icon = obj.headImg;
     this.hospitalData.name = obj.title;
     this.hospitalData.address = obj.address;
     this.hospitalData.bgImage = obj.bgImage;
     this.hospitalData.level = obj.level;
+    this.setMealData = setMeal;
   }
 };
 </script>
@@ -175,7 +211,7 @@ export default {
   bottom: 0;
   display: flex;
   flex-direction: column; */
-  background-color: rgb(242, 244, 246);
+  background-color: white;
 }
 .background-con {
   flex: 1;
@@ -198,8 +234,8 @@ export default {
 .card2 {
   padding-top: 0;
 }
-.card2 >>> .van-sticky--fixed {
-  margin: 0 29px;
+.all >>> .van-sticky{
+  box-shadow: 0 20px 20px 0px rgba(0, 0, 0, 0.05);
 }
 .head-con1 {
   display: flex;
@@ -210,17 +246,18 @@ export default {
 .head-con1 > div > div {
   margin-bottom: 5px;
 }
-.head-con2{
+.head-con2 {
   display: flex;
   align-items: center;
   font-size: 14px;
-  margin-top: 15px;
+  margin-bottom: 30px;
   text-align: left;
+  padding-left: 17px;
 }
-.head-con2 i{
+.head-con2 i {
   font-size: 22px;
   margin-right: 10px;
-  color: rgb(83, 197, 139);
+  color: rgb(191, 171, 115);
 }
 .hospital-icon {
   height: 41px;
@@ -234,23 +271,20 @@ export default {
 }
 .list-item {
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.1);
   padding: 4.48vw;
   flex: 1;
-  margin: 10px 0;
   text-align: left;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.5);
-  display:flex;
+  display: flex;
 }
 .list-item > img {
-  height: 80px;
-  width: 80px;
+  height: 130px;
+  width: 130px;
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 .list-item:active {
   /* background-color: #409eff; */
@@ -263,13 +297,13 @@ export default {
   justify-content: space-between;
 }
 .list-item-title {
-  font-size: 15px;
+  font-size: 17px;
   color: black;
   font-weight: 700;
   margin-bottom: 5px;
 }
-.price{
-  font-size: 15px;
+.price {
+  font-size: 20px;
   color: rgb(241, 49, 47);
   font-weight: 700;
 }
