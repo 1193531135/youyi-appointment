@@ -29,10 +29,20 @@ const routes = [
     name: 'SetMeal',
     component:re => require(['../components/SetMealDetail.vue'],re)
   },
+  {
+    path: '/createUser',
+    name: 'CreateUser',
+    component:re => require(['../components/CreateUser.vue'],re)
+  },
+  {
+    path: '/company',
+    name: 'Company',
+    component:re => require(['../components/Company.vue'],re)
+  },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   // base: process.env.BASE_URL,
   routes
 })

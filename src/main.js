@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import qs from 'querystring'
 import './assets/all.css'
-import { DropdownMenu, DropdownItem ,Search,Tag, Tab, Tabs, Tabbar, TabbarItem , Sticky } from 'vant';
+import { DropdownMenu, DropdownItem ,Search,Tag, Tab, Tabs, Tabbar, TabbarItem , Sticky ,Field ,Toast } from 'vant';
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Search)
@@ -14,6 +14,8 @@ Vue.use(Tabs)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Sticky)
+Vue.use(Field)
+Vue.prototype.$Toast = Toast
 Vue.config.productionTip = false
 Vue.prototype.$qs = qs
 Vue.prototype.$deepCopy = $deepCopy

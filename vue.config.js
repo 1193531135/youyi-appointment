@@ -1,4 +1,5 @@
 module.exports = {
     publicPath:'./',
-    outputDir:'appoinmentHospital'
+    outputDir:'appoinmentHospital',
+    parallel: false
 }

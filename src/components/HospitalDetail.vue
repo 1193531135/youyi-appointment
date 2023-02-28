@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="card card2" ref="card2">
-        <van-sticky :container="card2">
+        <van-sticky container="card2">
           <van-tabs v-model="searchData.type">
             <van-tab title="热门" name="host"></van-tab>
             <van-tab title="父母" name="parents"></van-tab>

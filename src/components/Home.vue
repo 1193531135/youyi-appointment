@@ -2,8 +2,8 @@
   <div class="all">
     <div class="indexPage">
       <div @click="toHospital">个人预约</div>
-      <div>团体预约</div>
-      <div>团体家属预约</div>
+      <div @click="toCompany">团体预约</div>
+      <div @click="toCompany">团体家属预约</div>
     </div>
   </div>
 </template>
@@ -13,6 +13,9 @@ export default {
   methods:{
     toHospital(){
       this.$router.push('/hospital')
+    },
+    toCompany(){
+      this.$router.push('/company')
     }
   }
 };
